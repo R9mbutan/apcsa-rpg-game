@@ -2,7 +2,7 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
-        System.out.println("Which character would you like to be?\n1. Knight\n2. Mage\n3. TACP\n4. Xi Xi Jinping");
+        System.out.println("Which character would you like to be?\n1. Knight\n2. Mage\n3. TACP\n4. Winnie");
         int charChoice = s.nextInt();
         System.out.println("Name your gameCharacter: ");
         gameCharacter player;
