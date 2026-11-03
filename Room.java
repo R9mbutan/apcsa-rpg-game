@@ -11,4 +11,8 @@ public class Room {
     Room 7 : Carsiniage
     Room 8 : Bron
      */
+    //testing
+    public Room() {
+
+    }
 }
