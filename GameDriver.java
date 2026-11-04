@@ -2,6 +2,8 @@ import java.util.*;
 public class GameDriver {
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
+
+        System.out.println("You have entered the De'vil's dungeon... you must escape...");
         System.out.println("Which character would you like to be?\n1. Knight\n2. Mage\n3. TACP\n4. Winnie\n5. Random");
         int charChoice = s.nextInt();
         System.out.print("Name your character: ");
@@ -21,9 +23,8 @@ public class GameDriver {
         else {
             player = new Actor((int) (Math.random()*101), (int) (Math.random()*80), (int) (Math.random()*80), s.next(), (int) (Math.random()*1000), "doo doo", 0);
         }
+        
         System.out.println(player);
-
-        System.out.println("test");
 
         s.close();
     }
