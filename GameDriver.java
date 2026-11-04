@@ -23,7 +23,7 @@ public class GameDriver {
         }
         System.out.println(player);
 
-
+        System.out.println("test");
 
         s.close();
     }
