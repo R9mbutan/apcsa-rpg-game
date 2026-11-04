@@ -6,7 +6,7 @@ public class Actor {
     private int specDMG = 0;
     private double specCharge = 0;
     private String specAttack;
-    public int location;
+    private int location;
 
     public Actor(int h, int cD, int rD, String n, int sD, String sN, int l) {
         this.hp = h;
@@ -53,5 +53,16 @@ public class Actor {
         this.ranDMG += rD;
         this.specDMG += sD;
         this.specCharge += sC;
+    }
+
+    public void setLocation(int r){
+        this.location = r;
+    }
+    public void linearMove(int d){
+        this.location += d;
+    }
+
+    public int getLoc(){
+        return location;
     }
 }
