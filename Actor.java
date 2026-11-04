@@ -55,6 +55,15 @@ public class Actor {
         this.specCharge += sC;
     }
 
+    public void pursue(Actor target){
+        if (target.getLoc() > this.getLoc()) {
+            linearMove(1);
+        }
+        else if (target.getLoc() < this.getLoc()) {
+            linearMove(-1);
+        }
+    }
+
     public void setLocation(int r){
         this.location = r;
     }
