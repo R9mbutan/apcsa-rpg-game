@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 
 public class Room {
     Actor hobe = new Actor(10000, 0, 0, "Hobe", 1000000, "Smush", -1);

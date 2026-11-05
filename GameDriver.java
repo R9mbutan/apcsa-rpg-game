@@ -23,8 +23,14 @@ public class GameDriver {
         else {
             player = new Actor((int) (Math.random()*101), (int) (Math.random()*80), (int) (Math.random()*80), s.next(), (int) (Math.random()*1000), "doo doo", 0);
         }
+
+
         
         System.out.println(player);
+
+        while (!Game.gameOver){
+            Game.run(player);
+        }
 
         s.close();
     }
