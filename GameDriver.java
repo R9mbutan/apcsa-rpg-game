@@ -3,34 +3,39 @@ public class GameDriver {
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
 
-        System.out.println("You have entered the De'vil's dungeon... you must escape...");
+        System.out.println("You have entered the De'vil's dungeon... you must escape...\n Get to room 8 to escape!");
         System.out.println("Which character would you like to be?\n1. Knight\n2. Mage\n3. TACP\n4. Winnie\n5. Random");
         int charChoice = s.nextInt();
         System.out.print("Name your character: ");
-        Actor player;
+        
+        Player player;
         if (charChoice == 1) {
-            player = new Actor(220, 50, 20, s.next(), 200, "Cavalry Charge", 0);
+            player = new Player(720, 100, 50, s.next(), 200, "Cavalry Charge", 0, 0.2);
         }
         else if (charChoice == 2) {
-            player = new Actor(150, 10, 60, s.next(), 250, "Gaseus Inflatos",0);
+            player = new Player(650, 10, 200, s.next(), 250, "Gaseus Inflatos",0, .5);
         }
         else if (charChoice == 3) {
-            player = new Actor(100, 50, 100, s.next(), 2000, "AC-130H Precision Strike",0);
+            player = new Player(600, 80, 150, s.next(), 2000, "AC-130H Precision Strike",0, 0.35);
         }
         else if (charChoice == 4) {
-            player = new Actor(1000, 0, 0, s.next(), 10, "The Great Might of the People",0);
+            player = new Player(1500, 1, 1, s.next(), 1, "The Great Might of the People",0, 1);
         }
         else {
-            player = new Actor((int) (Math.random()*101), (int) (Math.random()*80), (int) (Math.random()*80), s.next(), (int) (Math.random()*1000), "doo doo", 0);
+            player = new Player((int) (Math.random()*501), (int) (Math.random()*500), (int) (Math.random()*500), s.next(), (int) (Math.random()*1000), "doo doo", 0, Math.random());
         }
 
 
         
         System.out.println(player);
 
-        while (!Game.gameOver){
+        while (!Game.gameOver && player.getLoc() < 8){
             Game.run(player);
+            System.out.println("___________________________");
         }
+
+        if (!Game.gameOver) 
+            System.out.println("You win!");
 
         s.close();
     }

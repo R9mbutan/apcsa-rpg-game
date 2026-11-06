@@ -27,7 +27,7 @@ public class Actor {
     }
 
     public String toString() {
-        return "This is " + name + " with " + hp + " health points and deals " + contDMG + " contact damage" + ((ranDMG != 0) ? " and " + ranDMG + " ranged damage" : "") + " whose special attack is " + specAttack;
+        return "" + name + " (" + hp + " HP, " + contDMG + " hit DMG, " + ranDMG + " range DMG, room " + location + ", Special Attack: " + specAttack + ")";
     }
 
     public void hit(Actor a) {
@@ -36,7 +36,7 @@ public class Actor {
             System.out.println(this.name + " hit " + a.name + " for " + this.contDMG + " damage");
         }
         else 
-            System.out.println("Missed!");
+            System.out.println(this.getName() + " missed!");
     }
     public void shoot(Actor a) {
         if (a.location - this.location < 3) {
@@ -44,7 +44,7 @@ public class Actor {
             System.out.println(this.name + " shot " + a.name + " for " + this.ranDMG + " damage");
         }
         else 
-            System.out.println("Missed!");
+            System.out.println(this.getName() + " missed!");
     }
     
     public void upgrade(int h, int cD, int rD, int sD, double sC) {
