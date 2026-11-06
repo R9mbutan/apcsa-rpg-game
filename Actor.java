@@ -3,18 +3,14 @@ public class Actor {
     private int contDMG = 5;
     private int ranDMG = 0;
     private String name;
-    private int specDMG = 0;
-    private double specCharge = 0;
-    private String specAttack;
+
     private int location;
 
-    public Actor(int h, int cD, int rD, String n, int sD, String sN, int l) {
+    public Actor(int h, int cD, int rD, String n, int l) {
         this.hp = h;
         this.contDMG = cD;
         this.ranDMG = rD;
         this.name = n;
-        this.specDMG = sD;
-        this.specAttack = sN;
         this.location = l;
     }
 
@@ -27,7 +23,7 @@ public class Actor {
     }
 
     public String toString() {
-        return "" + name + " (" + hp + " HP, " + contDMG + " hit DMG, " + ranDMG + " range DMG, room " + location + ", Special Attack: " + specAttack + ")";
+        return "" + name + " (" + hp + " HP, " + contDMG + " hit DMG, " + ranDMG + " range DMG, room " + location + ")";
     }
 
     public void hit(Actor a) {
@@ -51,8 +47,6 @@ public class Actor {
         this.hp += h;
         this.contDMG += cD;
         this.ranDMG += rD;
-        this.specDMG += sD;
-        this.specCharge += sC;
     }
 
     

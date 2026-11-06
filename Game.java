@@ -10,23 +10,23 @@ public class Game {
 
     //public static void main(String[] args){
     static {
-        Monster hobe = new Monster(10000, 1000, 0, "Hobe", 1000000, "Smush", -1);
+        Monster hobe = new Monster(10000, 1000, 0, "Hobe", -1);
         
-        Monster skeletony = new Monster(100, 0, 50, "Skeletony", 100, "Flurry", 1);
-        Monster bone = new Monster(100, 0, 50, "Bo(ne)", 100, "Flurry", 1);
-        Monster skeletom = new Monster(100, 70, 50, "Skeletom", 100, "Flurry", 1);
+        Monster skeletony = new Monster(100, 0, 50, "Skeletony",  1);
+        Monster bone = new Monster(100, 0, 50, "Bo(ne)", 1);
+        Monster skeletom = new Monster(100, 70, 50, "Skeletom", 1);
 
-        Monster vex1 = new Monster(50, 30, 0, "Vextor", 0, null, 4);
-        Monster vex2 = new Monster(50, 30, 0, "Vex Luthor", 0, null, 4);
-        Monster vex3 = new Monster(50, 30, 0, "Venx", 0, null, 4);
-        Monster vex4 = new Monster(50, 30, 0, "Vextor", 0, null, 4);
-        Monster vex5 = new Monster(50, 30, 0, "Robert", 0, null, 4);
+        Monster vex1 = new Monster(50, 30, 0, "Vextor", 4);
+        Monster vex2 = new Monster(50, 30, 0, "Vex Luthor", 4);
+        Monster vex3 = new Monster(50, 30, 0, "Venx", 4);
+        Monster vex4 = new Monster(50, 30, 0, "Vextor", 4);
+        Monster vex5 = new Monster(50, 30, 0, "Robert", 4);
 
-        Monster zom1 = new Monster(150, 50, 0, "Zominic", 100, "Burp", 5);
-        Monster zom2 = new Monster(150, 50, 0, "Zominic", 100, "Burp", 5);
-        Monster zom3 = new Monster(150, 50, 0, "Zominic", 100, "Burp", 5);
+        Monster zom1 = new Monster(150, 50, 0, "Zominic", 5);
+        Monster zom2 = new Monster(150, 50, 0, "Zames", 5);
+        Monster zom3 = new Monster(150, 50, 0, "Zayden", 5);
 
-        Monster carnage = new Monster(666, 120, 70, "Carnage", 300, "", 7);
+        Monster carnage = new Monster(666, 120, 70, "Carnage", 7);
 
         Collections.addAll(environ, hobe, skeletony, bone, skeletom, vex1, vex2, vex3, vex4, vex5, zom1, zom2, zom3, carnage);
     }

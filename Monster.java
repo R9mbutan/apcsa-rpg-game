@@ -1,8 +1,8 @@
 public class Monster extends Actor {
     public boolean activated = false;
     //Constructor of Monster that inherits from Actor
-    public Monster(int h, int cD, int rD, String n, int sD, String sN, int l) {
-        super(h, cD, rD, n, sD, sN, l);
+    public Monster(int h, int cD, int rD, String n, int l) {
+        super(h, cD, rD, n, l);
     }
     //method that toggles whether or not a Monster object can see you
     public void activate(){
