@@ -5,7 +5,9 @@ import java.util.Scanner;
 public class Game {  
     public static boolean gameOver = false;
 
+    //environ for loops
     public static ArrayList<Monster> environ = new ArrayList<>(); 
+    //enraged to store enemies who know you exist and will follow/attack you
     public static ArrayList<Monster> enraged = new ArrayList<>(); 
 
     //public static void main(String[] args){
@@ -28,9 +30,11 @@ public class Game {
 
         Monster carnage = new Monster(666, 120, 70, "Carnage", 7);
 
+        //add all objects
         Collections.addAll(environ, hobe, skeletony, bone, skeletom, vex1, vex2, vex3, vex4, vex5, zom1, zom2, zom3, carnage);
     }
 
+    //run on a player
     public static void run(Player player){
         Scanner input = new Scanner(System.in);
 
@@ -49,8 +53,16 @@ public class Game {
             try{
                 int action = input.nextInt();
                 if (action == 1){
-                    player.linearMove(1);
-                    System.out.println("Moved to room " + player.getLoc());
+                    //pass if final boss gone
+                    if (!(player.getLoc() == 7 && environ.indexOf(carnage) != -1)) {
+                        player.linearMove(1);
+                        System.out.println("Moved to room " + player.getLoc());
+
+                        //if you move into room 6, upgrade and heal
+                        if (player.getLoc() == 6)
+                            player.upgrade(200, 100, 100);
+                    }
+                    else System.out.println("You must defeat Carnage to pass!");
                 }
                 else if (action == 2){
                     if (enraged.size() > 0){
