@@ -45,7 +45,7 @@ public class Game {
                 }
             }
             System.out.println("You are in room " + player.getLoc() + ". There are " + numEnemies + " enemies: " + targets + " What would you like to do?");
-            System.out.println("1. Move Forwards\n2. Hit\n3. Shoot\n4. Move Backwards");
+            System.out.println("1. Move Forwards\n2. Hit\n3. Shoot\n4. Move Backwards\n5. Special Attack (" + (int) ((1.0-player.specCharge)*100) + "% ready)");
             try{
                 int action = input.nextInt();
                 if (action == 1){
@@ -72,8 +72,12 @@ public class Game {
                     player.linearMove(-1);
                     System.out.println("Moved to room " + player.getLoc());
                 }
+                else if (action == 5){
+                    System.out.println("Beat down which enemy? " + targets);
+                    player.special(enraged.get(input.nextInt()));
+                }
                 else
-                    System.out.println("What? try again.");
+                    System.out.println("No action selected.");
                 
 
                 
