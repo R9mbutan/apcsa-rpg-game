@@ -81,25 +81,25 @@ public class Game {
 
 
             if (enraged.size() > 0) {
-                    for(int i = enraged.size(); i > 0; i--) {
+                    for(int i = (Math.min(enraged.size(),3)); i > 0; i--) {
                         if(Math.random()>0.5)
                         {
                             if(Math.random()>0.5){
                                 if (!player.dodge()){
-                                    enraged.get((int) ((double) Math.random()*enraged.size())).hit(player);
+                                    enraged.get(i).hit(player);
                                     System.out.println("You have " + player.getHP() + " health remaining.");
                                 }
-                                else System.out.println("The enemy missed!");
+                                else System.out.println(i.getName() + " missed!");
                             }
                             else{
                                 if (!player.dodge()){
-                                enraged.get((int) ((double) Math.random()*enraged.size())).shoot(player);
+                                enraged.get(i).shoot(player);
                                 System.out.println("You have " + player.getHP() + " health remaining.");
                                 }
-                                else System.out.println("The enemy missed!");
+                                else System.out.println(i.getName() + " missed!");
                             }
                         }
-                        enraged.get((int) ((double) Math.random()*enraged.size())).pursue(player);
+                        enraged.get(i).pursue(player);
                     }
                 }
         }
