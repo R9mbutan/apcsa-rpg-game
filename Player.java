@@ -10,8 +10,10 @@ public class Player extends Actor {
         this.specAttack = sN;
     }
     public boolean dodge(){
-        if (Math.random() > this.dodge)
+        if (Math.random() > this.dodge){
             return true;
+            this.charge(0.3);
+        }
         else return false; 
     }
     public String toString(){
@@ -25,5 +27,6 @@ public class Player extends Actor {
     }
     public void charge(double c){
         specCharge -= c;
+        if (specCharge < 0) specCharge = 0;
     }
 }
