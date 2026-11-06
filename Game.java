@@ -52,56 +52,65 @@ public class Game {
             System.out.println("1. Move Forwards\n2. Hit\n3. Shoot\n4. Move Backwards\n5. Special Attack (" + (int) ((1.0-player.specCharge)*100) + "% ready)");
             try{
                 int action = input.nextInt();
-                if (action == 1){
+                if (action == 1){// move
                     //pass if final boss gone
                     if (!(player.getLoc() == 7 && environ.indexOf(carnage) != -1)) {
                         player.linearMove(1);
                         System.out.println("Moved to room " + player.getLoc());
 
                         //if you move into room 6, upgrade and heal
+                        //secret tactic: move to and fro room 6 to heal and upgrade a ton
                         if (player.getLoc() == 6)
                             player.upgrade(200, 100, 100);
                     }
+                        //can't move
                     else System.out.println("You must defeat Carnage to pass!");
                 }
-                else if (action == 2){
-                    if (enraged.size() > 0){
-                    System.out.println("Hit which enemy? " + targets);
-                    player.hit(enraged.get(input.nextInt()-1));
+                else if (action == 2){// hit
+                    if (enraged.size() > 0){// enemies?
+                        System.out.print("Hit which enemy? " + targets + "Enemy: ");
+                        player.hit(enraged.get(input.nextInt()-1));
                     }
                     else
                         System.out.println("There are no enemies to attack");
                 }
-                else if (action == 3){
-                    if (enraged.size() > 0){
-                    System.out.println("Shoot which enemy? " + targets);
-                    player.shoot(enraged.get(input.nextInt()));
+                else if (action == 3){// shoot
+                    if (enraged.size() > 0){// enemies?
+                    System.out.print("Shoot which enemy? " + targets + "Enemy: ");
+                    player.shoot(enraged.get(input.nextInt())-1);
                     }
                     else
                         System.out.println("There are no enemies to attack");
                 }
-                else if (action == 4){
+                else if (action == 4){ // move backward
                     player.linearMove(-1);
+                    //room 6 upgrade and stuff
+                    if (player.getLoc() == 6)
+                            player.upgrade(200, 100, 100);
                     System.out.println("Moved to room " + player.getLoc());
                 }
-                else if (action == 5){
+                else if (action == 5){// use special
                     System.out.println("Beat down which enemy? " + targets);
                     player.special(enraged.get(input.nextInt()));
                 }
-                else
+                else //invalid inputs - skip turn
                     System.out.println("No action selected.");
                 
 
                 
-            }catch(Exception e){System.out.println("invalid input");}
+            }catch(Exception e){System.out.println("invalid input");}//catch errors
 
 
-            if (enraged.size() > 0) {
+            if (enraged.size() > 0) {//monster act
+                //50% chance for each activated enemy to act (or 3, if there are 6 or more enemies)
                     for(int i = (Math.min(enraged.size(),3)); i > 0; i--) {
+                        
+                        //50-50 chance to hit or shoot
                         if(Math.random()>0.5)
                         {
                             if(Math.random()>0.5){
                                 if (!player.dodge()){
+                                    //hit if player didn't dodge
                                     enraged.get(i).hit(player);
                                     System.out.println("You have " + player.getHP() + " health remaining.");
                                 }
@@ -109,17 +118,21 @@ public class Game {
                             }
                             else{
                                 if (!player.dodge()){
-                                enraged.get(i).shoot(player);
-                                System.out.println("You have " + player.getHP() + " health remaining.");
+                                    //shoot if player didn't dodge
+                                    enraged.get(i).shoot(player);
+                                    System.out.println("You have " + player.getHP() + " health remaining.");
                                 }
                                 else System.out.println(i.getName() + " missed!");
                             }
                         }
-                        enraged.get(i).pursue(player);
+
+                        //3 or fewer random monsters pursue
+                        enraged.get((int) ((double) Math.random()*enraged.size())).pursue(player);
                     }
                 }
         }
         else {
+            //end game and say that player died
             gameOver = true;
             System.out.println("You died!");
         }
