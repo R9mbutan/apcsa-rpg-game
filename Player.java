@@ -1,7 +1,7 @@
 public class Player extends Actor {
     private double dodge;
     private int specDMG = 0;
-    private double specCharge = 0;
+    public double specCharge = 0;
     private String specAttack;
     public Player(int h, int cD, int rD, String n, int sD, String sN, int l, double d) {
         super(h, cD, rD, n, l);
