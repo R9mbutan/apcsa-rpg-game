@@ -168,7 +168,8 @@ public class Game {
         else {
             //end game and say that player died
             gameOver = true;
-            System.out.println("You died!");
+            System.out.println("Everything goes dark...and you see a haunting face before you...Game over");
         }
+        //input.close();
     }
 }

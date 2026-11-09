@@ -1,3 +1,7 @@
+import java.awt.*;
+import java.io.File;
+import javax.imageio.ImageIO;
+
 import java.util.*;
 public class GameDriver {
     public static void main(String[] args) {
@@ -36,8 +40,21 @@ public class GameDriver {
             System.out.println("___________________________");
         }
         //If player's not dead and gets to end, they win
-        if (!Game.gameOver) 
-            System.out.println("You see the light, and escape the tunnel. You win!");
+        if (!Game.gameOver) {
+            System.out.println("You enter the light....and see a shining face... You win!");
+            try {
+                java.awt.Desktop.getDesktop().open(new java.io.File("happyBron.jpg"));
+            } catch (Exception e) {
+                System.out.println("Could not open image: " + e.getMessage());
+            }
+        }
+        else{
+            try {
+                java.awt.Desktop.getDesktop().open(new java.io.File("scaryBron.jpg"));
+            } catch (Exception e) {
+                System.out.println("Could not open image: " + e.getMessage());
+            }
+        }
         //Closes the input
         s.close();
     }
