@@ -36,6 +36,7 @@ public class Player extends Actor {
         if (specCharge <= 0){
             specCharge = 1;
             m.takeDamage(specDMG);
+            System.out.println("You used " + specAttack + " on " + m.getName() + " for " + specDMG + " damage!");
         }
         else
             System.out.println("You do not have enough charge to use the special attack.");
