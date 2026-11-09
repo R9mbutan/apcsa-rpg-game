@@ -23,7 +23,7 @@ public class Game {
         Monster vex2 = new Monster(50, 30, 0, "Vex Luthor", 4);
         Monster vex3 = new Monster(50, 30, 0, "Venx", 4);
         Monster vex4 = new Monster(50, 30, 0, "Vextor", 4);
-        Monster vex5 = new Monster(50, 30, 0, "Robert", 4);
+        Monster vex5 = new Monster(50, 30, 0, "Robert (Vex)", 4);
 
         Monster zom1 = new Monster(150, 50, 0, "Zominic", 5);
         Monster zom2 = new Monster(150, 50, 0, "Zames", 5);
@@ -161,6 +161,13 @@ public class Game {
                                 System.out.println(a.getName() + " has a snotty nose and missed!");
                         }
                     }
+
+                    if (a.getName().toLowerCase().contains("vex") && a.getHP() > 0 && a.getLoc() != player.getLoc()) { //vex shift
+                        if (Math.random() < 0.25) { 
+                            a.setLocation(player.getLoc()); 
+                             System.out.println(a.getName() + " phases to you.");
+                            }
+                        }
                 }
             }
 
